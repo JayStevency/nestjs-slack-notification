@@ -1,1 +1,1 @@
-export * from './slack-noti-cron.decorator'
+export * from './slack-error-noti.decorator'
