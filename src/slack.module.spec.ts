@@ -4,7 +4,6 @@ import { SlackModule } from './slack.module';
 import { SlackService } from './services/slack.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { SlackModuleOptions } from './interfaces/slack-module-options.interface';
-import { CronExceptionHandler } from './handlers/cron-exception.handler';
 
 describe('SlackModule', () => {
   beforeEach(() => {

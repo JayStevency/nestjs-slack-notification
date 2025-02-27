@@ -2,7 +2,6 @@ import { DynamicModule, Global, Module, Provider } from '@nestjs/common';
 import { SLACK_OPTIONS } from './constants';
 import { SlackModuleAsyncOptions, SlackModuleOptions, SlackOptionsFactory } from './interfaces';
 import { SlackService } from './services';
-import { CronExceptionHandler } from './handlers';
 import { ScheduleModule } from '@nestjs/schedule';
 
 @Global()
@@ -11,14 +10,12 @@ export class SlackModule {
   static forRoot(options: SlackModuleOptions): DynamicModule {
     return {
       module: SlackModule,
-      imports: [ScheduleModule.forRoot()], 
       providers: [
         {
           provide: SLACK_OPTIONS,
           useValue: options,
         },
         SlackService,
-        CronExceptionHandler
       ],
       exports: [SlackService],
     };
@@ -27,11 +24,10 @@ export class SlackModule {
   static forRootAsync(options: SlackModuleAsyncOptions): DynamicModule {
     return {
       module: SlackModule,
-      imports: [...(options.imports || []), ScheduleModule.forRoot()],
+      imports: [...(options.imports || [])],
       providers: [
         ...this.createAsyncProviders(options),
         SlackService,
-        CronExceptionHandler
       ],
       exports: [SlackService],
     };
