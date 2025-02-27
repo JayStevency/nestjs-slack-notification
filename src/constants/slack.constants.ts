@@ -1,0 +1,1 @@
+export const SLACK_OPTIONS = 'SLACK_OPTIONS';
