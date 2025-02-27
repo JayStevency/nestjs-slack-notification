@@ -1,6 +1,6 @@
 {
   "name": "nestjs-slack-notification",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "NestJS module for Slack notifications with global exception handling",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
